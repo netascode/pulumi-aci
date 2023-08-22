@@ -5,7 +5,7 @@
     <Authors>Cisco</Authors>
     <Company>Cisco</Company>
     <Description>The Pulumi ACI provider provides resources to interact with a Cisco ACI fabric.</Description>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://pulumi.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/netascode/pulumi-aci</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>

@@ -51,7 +51,7 @@ setup(name='pulumi_aci',
       project_urls={
           'Repository': 'https://github.com/netascode/pulumi-aci'
       },
-      license='Apache-2.0',
+      license='MPL-2.0',
       packages=find_packages(),
       package_data={
           'pulumi_aci': [

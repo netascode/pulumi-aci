@@ -43,7 +43,7 @@ func NewProvider() p.Provider {
 				"cisco",
 			},
 			Homepage:   "https://pulumi.com",
-			License:    "Apache-2.0",
+			License:    "MPL-2.0",
 			Repository: "https://github.com/netascode/pulumi-aci",
 			Publisher:  "Cisco",
 			LogoURL:    "https://raw.githubusercontent.com/netascode/pulumi-aci/master/assets/logo.png",

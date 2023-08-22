@@ -94,7 +94,7 @@
             }
         }
     },
-    "license": "Apache-2.0",
+    "license": "MPL-2.0",
     "logoUrl": "https://raw.githubusercontent.com/netascode/pulumi-aci/master/assets/logo.png",
     "name": "aci",
     "provider": {
