@@ -3,7 +3,7 @@ archives:
     name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
 before:
   hooks:
-    - make gen
+    - make codegen
 builds:
   - binary: pulumi-resource-aci
     dir: provider
