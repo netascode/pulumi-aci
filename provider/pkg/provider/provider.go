@@ -34,7 +34,7 @@ func NewProvider() p.Provider {
 	return infer.Provider(infer.Options{
 		// This is the metadata for the provider
 		Metadata: schema.Metadata{
-			DisplayName: "Aci",
+			DisplayName: "ACI",
 			Description: "The Pulumi ACI provider provides resources to interact with a Cisco ACI fabric.",
 			Keywords: []string{
 				"pulumi",

@@ -55,7 +55,7 @@
         }
     },
     "description": "The Pulumi ACI provider provides resources to interact with a Cisco ACI fabric.",
-    "displayName": "Aci",
+    "displayName": "ACI",
     "homepage": "https://pulumi.com",
     "keywords": [
         "pulumi",
