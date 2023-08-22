@@ -14,7 +14,7 @@ The ACI provider must be configured with credentials to deploy and update resour
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as aci from "@pulumi/aci";
+import * as aci from "@netascode/aci";
 
 const tenant = new aci.apic.Rest(
     "TENANT1",

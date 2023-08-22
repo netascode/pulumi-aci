@@ -85,7 +85,8 @@
         "nodejs": {
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
-            }
+            },
+            "packageName": "@netascode/aci"
         },
         "python": {
             "requires": {

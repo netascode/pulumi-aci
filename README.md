@@ -11,13 +11,13 @@ This package is available for several languages/platforms:
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
 ```bash
-npm install @pulumi/aci
+npm install @netascode/aci
 ```
 
 or `yarn`:
 
 ```bash
-yarn add @pulumi/aci
+yarn add @netascode/aci
 ```
 
 ### Python
@@ -50,7 +50,7 @@ dotnet add package Pulumi.Aci
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as aci from "@pulumi/aci";
+import * as aci from "@netascode/aci";
 
 const tenant = new aci.apic.Rest(
     "TENANT1",
@@ -136,8 +136,8 @@ class AciTenant : Stack
 The following configuration points are available for the `aci` provider:
 
 - `aci:url` (environment: `ACI_URL`) - URL of the Cisco APIC web interface
-- `aci:username` (environment: `ACU_USERNAME`) - Username for the APIC Account
-- `aci:password` - (environment: `ACU_PASSWORD`) - Password for the APIC Account
+- `aci:username` (environment: `ACI_USERNAME`) - Username for the APIC Account
+- `aci:password` - (environment: `ACI_PASSWORD`) - Password for the APIC Account
 
 ## Reference
 

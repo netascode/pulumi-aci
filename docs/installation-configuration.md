@@ -8,7 +8,7 @@ layout: installation
 
 The Pulumiverse ACI provider is available as a package in all Pulumi languages:
 
-* JavaScript/TypeScript: [`@pulumi/aci`](https://www.npmjs.com/package/@pulumi/aci)
+* JavaScript/TypeScript: [`@netascode/aci`](https://www.npmjs.com/package/@netascode/aci)
 * Python: [`pulumi_aci`](https://pypi.org/project/pulumi-aci/)
 * Go: [`github.com/netascode/pulumi-aci/sdk/go/aci`](https://pkg.go.dev/github.com/netascode/pulumi-aci/sdk)
 * .NET: [`Pulumi.Aci`](https://www.nuget.org/packages/Pulumi.Aci)

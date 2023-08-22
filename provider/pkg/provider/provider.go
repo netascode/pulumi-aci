@@ -59,6 +59,7 @@ func NewProvider() p.Provider {
 					"importBasePath":                 "github.com/netascode/pulumi-aci/sdk/go/aci",
 				},
 				"nodejs": map[string]any{
+					"packageName": "@netascode/aci",
 					"dependencies": map[string]string{
 						"@pulumi/pulumi": "^3.0.0",
 					},

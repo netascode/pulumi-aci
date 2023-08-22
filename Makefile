@@ -3,7 +3,7 @@ PROJECT_NAME := Pulumi ACI Resource Provider
 PACK             := aci
 PACKDIR          := sdk
 PROJECT          := github.com/netascode/pulumi-aci
-NODE_MODULE_NAME := @pulumi/aci
+NODE_MODULE_NAME := @netascode/aci
 NUGET_PKG_NAME   := Pulumi.Aci
 
 PROVIDER        := pulumi-resource-${PACK}

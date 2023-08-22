@@ -1,4 +1,4 @@
-import * as aci from "@pulumi/aci";
+import * as aci from "@netascode/aci";
 
 const tenantName = "TEN-PULUMI1";
 const tenant = new aci.apic.Rest(
