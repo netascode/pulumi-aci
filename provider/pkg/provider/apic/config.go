@@ -1,0 +1,102 @@
+// Copyright © 2023 Cisco Systems, Inc. and its affiliates.
+// All rights reserved.
+//
+// Licensed under the Mozilla Public License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://mozilla.org/MPL/2.0/
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// SPDX-License-Identifier: MPL-2.0
+
+package aci
+
+import (
+	"os"
+	"strconv"
+
+	"github.com/netascode/go-aci"
+	p "github.com/pulumi/pulumi-go-provider"
+	"github.com/pulumi/pulumi-go-provider/infer"
+)
+
+type Config struct {
+	Version  *string `pulumi:"version,optional"`
+	Url      string  `pulumi:"url"`
+	Username string  `pulumi:"username"`
+	Password string  `pulumi:"password" provider:"secret"`
+	Insecure *bool   `pulumi:"insecure,optional"`
+	Retries  *int    `pulumi:"retries,optional"`
+	Logging  *bool   `pulumi:"logging,optional"`
+	Client   *aci.Client
+}
+
+var _ = (infer.Annotated)((*Config)(nil))
+
+func (c *Config) Annotate(a infer.Annotator) {
+	a.Describe(&c.Url, "URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.")
+	a.Describe(&c.Username, "Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.")
+	a.Describe(&c.Password, "Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.")
+	a.Describe(&c.Insecure, "Allow insecure HTTPS client. This can also be set as the ACI_INSECURE environment variable. Defaults to true.")
+	a.Describe(&c.Retries, "Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.")
+	a.Describe(&c.Logging, "Enable debug logging. This can also be set as the ACI_LOGGING environment variable. Defaults to false.")
+	a.SetDefault(&c.Url, "", "ACI_URL")
+	a.SetDefault(&c.Username, "", "ACI_USERNAME")
+	a.SetDefault(&c.Password, "", "ACI_PASSWORD")
+
+	// not yet supported in pulumi-go-provider
+	// a.SetDefault(&c.Insecure, true, "ACI_INSECURE")
+	// a.SetDefault(&c.Retries, 3, "ACI_RETRIES")
+	// a.SetDefault(&c.Logging, false, "ACI_LOGGING")
+}
+
+var _ = (infer.CustomConfigure)((*Config)(nil))
+
+func (c *Config) Configure(ctx p.Context) error {
+	var insecure bool
+	if c.Insecure == nil {
+		insecureStr := os.Getenv("ACI_INSECURE")
+		if insecureStr == "" {
+			insecure = true
+		} else {
+			insecure, _ = strconv.ParseBool(insecureStr)
+		}
+	} else {
+		insecure = *c.Insecure
+	}
+
+	var retries int
+	if c.Retries == nil {
+		retriesStr := os.Getenv("ACI_RETRIES")
+		if retriesStr == "" {
+			retries = 3
+		} else {
+			retries64, _ := strconv.ParseInt(retriesStr, 0, 0)
+			retries = int(retries64)
+		}
+	} else {
+		retries = *c.Retries
+	}
+
+	var logging bool
+	if c.Logging == nil {
+		loggingStr := os.Getenv("ACI_LOGGING")
+		if loggingStr == "" {
+			logging = false
+		} else {
+			logging, _ = strconv.ParseBool(loggingStr)
+		}
+	} else {
+		logging = *c.Logging
+	}
+
+	client, _ := aci.NewClient(c.Url, c.Username, c.Password, aci.Insecure(insecure), aci.MaxRetries(retries), aci.Logging(logging))
+	c.Client = &client
+	return nil
+}
