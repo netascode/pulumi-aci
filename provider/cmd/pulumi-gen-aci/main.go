@@ -102,9 +102,8 @@ func main() {
 	}
 
 	// write schema for registry
-	dir, file := filepath.Split(schemaPath)
-	file = "reg_" + file
-	path := filepath.Join(dir, file)
+	dir, _ := filepath.Split(schemaPath)
+	path := filepath.Join(dir, "schema.json")
 	err = os.WriteFile(path, out, 0600)
 	if err != nil {
 		panic(err)

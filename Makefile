@@ -12,7 +12,7 @@ VERSION         ?= $(shell pulumictl get version)
 PROVIDER_PATH   := provider
 VERSION_PATH    := ${PROVIDER_PATH}/pkg/version.Version
 
-SCHEMA_FILE     := provider/cmd/pulumi-resource-${PACK}/schema.json
+SCHEMA_FILE     := provider/cmd/pulumi-resource-${PACK}/sdk_schema.json
 GOPATH          := $(shell go env GOPATH)
 
 WORKING_DIR     := $(shell pwd)

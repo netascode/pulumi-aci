@@ -97,7 +97,6 @@
     "license": "Apache-2.0",
     "logoUrl": "https://raw.githubusercontent.com/netascode/pulumi-aci/master/assets/logo.png",
     "name": "aci",
-    "pluginDownloadURL": "github://api.github.com/netascode/pulumi-aci",
     "provider": {
         "inputProperties": {
             "insecure": {
