@@ -23,6 +23,7 @@
     },
     "pulumi": {
         "resource": true,
-        "name": "aci"
+        "name": "aci",
+        "server": "github://api.github.com/netascode"
     }
 }

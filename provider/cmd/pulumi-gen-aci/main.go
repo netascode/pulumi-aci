@@ -23,7 +23,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"path/filepath"
 
 	aci "github.com/netascode/pulumi-aci/provider/pkg/provider"
 	providerVersion "github.com/netascode/pulumi-aci/provider/pkg/version"
@@ -90,21 +89,6 @@ func main() {
 
 	schemaPath := args[0]
 	err = os.WriteFile(schemaPath, out, 0600)
-	if err != nil {
-		panic(err)
-	}
-
-	// add web download url
-	arg["pluginDownloadURL"] = "github://api.github.com/netascode/pulumi-aci"
-	out, err = MarshalIndent(arg)
-	if err != nil {
-		panic(err)
-	}
-
-	// write schema for registry
-	dir, _ := filepath.Split(schemaPath)
-	path := filepath.Join(dir, "schema.json")
-	err = os.WriteFile(path, out, 0600)
 	if err != nil {
 		panic(err)
 	}

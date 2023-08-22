@@ -51,6 +51,7 @@ namespace Pulumi.Aci
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/netascode",
                 AdditionalSecretOutputs =
                 {
                     "password",

@@ -42,11 +42,12 @@ func NewProvider() p.Provider {
 				"networking",
 				"cisco",
 			},
-			Homepage:   "https://pulumi.com",
-			License:    "MPL-2.0",
-			Repository: "https://github.com/netascode/pulumi-aci",
-			Publisher:  "Cisco",
-			LogoURL:    "https://raw.githubusercontent.com/netascode/pulumi-aci/master/assets/logo.png",
+			Homepage:          "https://pulumi.com",
+			License:           "MPL-2.0",
+			Repository:        "https://github.com/netascode/pulumi-aci",
+			PluginDownloadURL: "github://api.github.com/netascode",
+			Publisher:         "Cisco",
+			LogoURL:           "https://raw.githubusercontent.com/netascode/pulumi-aci/master/assets/logo.png",
 			// This contains language specific details for generating the provider's SDKs
 			LanguageMap: map[string]any{
 				"csharp": map[string]any{
