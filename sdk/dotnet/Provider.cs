@@ -18,6 +18,9 @@ namespace Pulumi.Aci
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
+        [Output("pluginDownloadURL")]
+        public Output<string?> PluginDownloadURL { get; private set; } = null!;
+
         /// <summary>
         /// URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
         /// </summary>
@@ -93,6 +96,9 @@ namespace Pulumi.Aci
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("pluginDownloadURL")]
+        public Input<string>? PluginDownloadURL { get; set; }
 
         /// <summary>
         /// Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.

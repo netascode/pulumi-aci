@@ -23,6 +23,7 @@ export class Provider extends pulumi.ProviderResource {
      * Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
      */
     public readonly password!: pulumi.Output<string>;
+    public readonly pluginDownloadURL!: pulumi.Output<string | undefined>;
     /**
      * URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
      */
@@ -56,6 +57,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             resourceInputs["logging"] = pulumi.output(args ? args.logging : undefined).apply(JSON.stringify);
             resourceInputs["password"] = (args?.password ? pulumi.secret(args.password) : undefined) ?? (utilities.getEnv("ACI_PASSWORD") || "");
+            resourceInputs["pluginDownloadURL"] = args ? args.pluginDownloadURL : undefined;
             resourceInputs["retries"] = pulumi.output(args ? args.retries : undefined).apply(JSON.stringify);
             resourceInputs["url"] = (args ? args.url : undefined) ?? (utilities.getEnv("ACI_URL") || "");
             resourceInputs["username"] = (args ? args.username : undefined) ?? (utilities.getEnv("ACI_USERNAME") || "");
@@ -84,6 +86,7 @@ export interface ProviderArgs {
      * Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
      */
     password: pulumi.Input<string>;
+    pluginDownloadURL?: pulumi.Input<string>;
     /**
      * Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
      */

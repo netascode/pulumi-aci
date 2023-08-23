@@ -25,6 +25,9 @@
                 "secret": true,
                 "type": "string"
             },
+            "pluginDownloadURL": {
+                "type": "string"
+            },
             "retries": {
                 "description": "Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.",
                 "type": "integer"
@@ -119,6 +122,9 @@
                 "secret": true,
                 "type": "string"
             },
+            "pluginDownloadURL": {
+                "type": "string"
+            },
             "retries": {
                 "description": "Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.",
                 "type": "integer"
@@ -165,6 +171,9 @@
                 },
                 "description": "Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.",
                 "secret": true,
+                "type": "string"
+            },
+            "pluginDownloadURL": {
                 "type": "string"
             },
             "retries": {

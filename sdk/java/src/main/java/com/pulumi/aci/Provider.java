@@ -30,6 +30,12 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     public Output<String> password() {
         return this.password;
     }
+    @Export(name="pluginDownloadURL", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> pluginDownloadURL;
+
+    public Output<Optional<String>> pluginDownloadURL() {
+        return Codegen.optional(this.pluginDownloadURL);
+    }
     /**
      * URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
      * 

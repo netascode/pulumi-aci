@@ -40,6 +40,14 @@ Object.defineProperty(exports, "password", {
     enumerable: true,
 });
 
+export declare const pluginDownloadURL: string | undefined;
+Object.defineProperty(exports, "pluginDownloadURL", {
+    get() {
+        return __config.get("pluginDownloadURL");
+    },
+    enumerable: true,
+});
+
 /**
  * Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
  */

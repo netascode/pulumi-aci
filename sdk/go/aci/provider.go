@@ -16,7 +16,8 @@ type Provider struct {
 	pulumi.ProviderResourceState
 
 	// Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
-	Password pulumi.StringOutput `pulumi:"password"`
+	Password          pulumi.StringOutput    `pulumi:"password"`
+	PluginDownloadURL pulumi.StringPtrOutput `pulumi:"pluginDownloadURL"`
 	// URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.
@@ -68,7 +69,8 @@ type providerArgs struct {
 	// Enable debug logging. This can also be set as the ACI_LOGGING environment variable. Defaults to false.
 	Logging *bool `pulumi:"logging"`
 	// Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
-	Password string `pulumi:"password"`
+	Password          string  `pulumi:"password"`
+	PluginDownloadURL *string `pulumi:"pluginDownloadURL"`
 	// Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
 	Retries *int `pulumi:"retries"`
 	// URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
@@ -85,7 +87,8 @@ type ProviderArgs struct {
 	// Enable debug logging. This can also be set as the ACI_LOGGING environment variable. Defaults to false.
 	Logging pulumi.BoolPtrInput
 	// Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
-	Password pulumi.StringInput
+	Password          pulumi.StringInput
+	PluginDownloadURL pulumi.StringPtrInput
 	// Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
 	Retries pulumi.IntPtrInput
 	// URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
@@ -135,6 +138,10 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 // Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
 func (o ProviderOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o ProviderOutput) PluginDownloadURL() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PluginDownloadURL }).(pulumi.StringPtrOutput)
 }
 
 // URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.

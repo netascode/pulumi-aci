@@ -24,6 +24,8 @@ password: str
 Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
 """
 
+pluginDownloadURL: Optional[str]
+
 retries: Optional[int]
 """
 Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.

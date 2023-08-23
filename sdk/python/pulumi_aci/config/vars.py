@@ -37,6 +37,10 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('password') or (_utilities.get_env('ACI_PASSWORD') or '')
 
     @property
+    def plugin_download_url(self) -> Optional[str]:
+        return __config__.get('pluginDownloadURL')
+
+    @property
     def retries(self) -> Optional[int]:
         """
         Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.

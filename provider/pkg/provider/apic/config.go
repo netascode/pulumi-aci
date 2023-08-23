@@ -27,14 +27,15 @@ import (
 )
 
 type Config struct {
-	Version  *string `pulumi:"version,optional"`
-	Url      string  `pulumi:"url"`
-	Username string  `pulumi:"username"`
-	Password string  `pulumi:"password" provider:"secret"`
-	Insecure *bool   `pulumi:"insecure,optional"`
-	Retries  *int    `pulumi:"retries,optional"`
-	Logging  *bool   `pulumi:"logging,optional"`
-	Client   *aci.Client
+	Version           *string `pulumi:"version,optional"`
+	PluginDownloadURL *string `pulumi:"pluginDownloadURL,optional"`
+	Url               string  `pulumi:"url"`
+	Username          string  `pulumi:"username"`
+	Password          string  `pulumi:"password" provider:"secret"`
+	Insecure          *bool   `pulumi:"insecure,optional"`
+	Retries           *int    `pulumi:"retries,optional"`
+	Logging           *bool   `pulumi:"logging,optional"`
+	Client            *aci.Client
 }
 
 var _ = (infer.Annotated)((*Config)(nil))
