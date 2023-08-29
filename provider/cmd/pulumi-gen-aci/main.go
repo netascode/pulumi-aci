@@ -74,13 +74,6 @@ func main() {
 	// remove version key
 	delete(arg, "version")
 
-	// add missing descriptions
-	arg["types"].(map[string]any)["aci:apic:Child"].(map[string]any)["description"] = "A child object to be created."
-	prop := arg["types"].(map[string]any)["aci:apic:Child"].(map[string]any)["properties"].(map[string]any)
-	prop["class_name"].(map[string]any)["description"] = "Which class object is being created. (Make sure there is no colon in the classname)"
-	prop["content"].(map[string]any)["description"] = "Map of key-value pairs those needed to be passed to the Model object as parameters. Make sure the key name matches the name with the object parameter in ACI."
-	prop["rn"].(map[string]any)["description"] = "Relative name of child object."
-
 	// use custom marshal indent to skip html escaping
 	out, err := MarshalIndent(arg)
 	if err != nil {

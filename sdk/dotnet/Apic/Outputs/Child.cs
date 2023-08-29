@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aci.Apic.Outputs
 {
 
-    /// <summary>
-    /// A child object to be created.
-    /// </summary>
     [OutputType]
     public sealed class Child
     {

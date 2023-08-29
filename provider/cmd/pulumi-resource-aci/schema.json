@@ -280,7 +280,6 @@
     },
     "types": {
         "aci:apic:Child": {
-            "description": "A child object to be created.",
             "properties": {
                 "class_name": {
                     "description": "Which class object is being created. (Make sure there is no colon in the classname)",

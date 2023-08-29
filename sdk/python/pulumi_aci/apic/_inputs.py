@@ -20,7 +20,6 @@ class ChildArgs:
                  rn: pulumi.Input[str],
                  content: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        A child object to be created.
         :param pulumi.Input[str] class_name: Which class object is being created. (Make sure there is no colon in the classname)
         :param pulumi.Input[str] rn: Relative name of child object.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] content: Map of key-value pairs those needed to be passed to the Model object as parameters. Make sure the key name matches the name with the object parameter in ACI.

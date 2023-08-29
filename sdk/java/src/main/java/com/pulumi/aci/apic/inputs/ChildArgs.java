@@ -12,10 +12,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-/**
- * A child object to be created.
- * 
- */
 public final class ChildArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ChildArgs Empty = new ChildArgs();

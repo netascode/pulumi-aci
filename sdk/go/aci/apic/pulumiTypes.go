@@ -13,7 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// A child object to be created.
 type Child struct {
 	// Which class object is being created. (Make sure there is no colon in the classname)
 	Class_name string `pulumi:"class_name"`
@@ -34,7 +33,6 @@ type ChildInput interface {
 	ToChildOutputWithContext(context.Context) ChildOutput
 }
 
-// A child object to be created.
 type ChildArgs struct {
 	// Which class object is being created. (Make sure there is no colon in the classname)
 	Class_name pulumi.StringInput `pulumi:"class_name"`
@@ -81,7 +79,6 @@ func (i ChildArray) ToChildArrayOutputWithContext(ctx context.Context) ChildArra
 	return pulumi.ToOutputWithContext(ctx, i).(ChildArrayOutput)
 }
 
-// A child object to be created.
 type ChildOutput struct{ *pulumi.OutputState }
 
 func (ChildOutput) ElementType() reflect.Type {

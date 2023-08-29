@@ -6,9 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export namespace apic {
-    /**
-     * A child object to be created.
-     */
     export interface Child {
         /**
          * Which class object is being created. (Make sure there is no colon in the classname)

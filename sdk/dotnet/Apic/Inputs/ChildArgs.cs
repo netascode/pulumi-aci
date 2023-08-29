@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aci.Apic.Inputs
 {
 
-    /// <summary>
-    /// A child object to be created.
-    /// </summary>
     public sealed class ChildArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

@@ -15,15 +15,11 @@ __all__ = [
 
 @pulumi.output_type
 class Child(dict):
-    """
-    A child object to be created.
-    """
     def __init__(__self__, *,
                  class_name: str,
                  rn: str,
                  content: Optional[Mapping[str, str]] = None):
         """
-        A child object to be created.
         :param str class_name: Which class object is being created. (Make sure there is no colon in the classname)
         :param str rn: Relative name of child object.
         :param Mapping[str, str] content: Map of key-value pairs those needed to be passed to the Model object as parameters. Make sure the key name matches the name with the object parameter in ACI.

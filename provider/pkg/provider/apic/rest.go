@@ -73,6 +73,12 @@ func (c *RestInputs) Annotate(a infer.Annotator) {
 	a.Describe(&c.Children, "List of child objects to be created. Each child object must have a unique relative name.")
 }
 
+func (c *Child) Annotate(a infer.Annotator) {
+	a.Describe(&c.Rn, "Relative name of child object.")
+	a.Describe(&c.ClassName, "Which class object is being created. (Make sure there is no colon in the classname)")
+	a.Describe(&c.Content, "Map of key-value pairs those needed to be passed to the Model object as parameters. Make sure the key name matches the name with the object parameter in ACI.")
+}
+
 // These are the outputs (or properties) of a Rest resource.
 type RestOutputs struct {
 	RestInputs
