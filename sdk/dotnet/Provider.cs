@@ -18,9 +18,6 @@ namespace Pulumi.Aci
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
-        [Output("pluginDownloadURL")]
-        public Output<string?> PluginDownloadURL { get; private set; } = null!;
-
         /// <summary>
         /// URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
         /// </summary>
@@ -32,9 +29,6 @@ namespace Pulumi.Aci
         /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
-
-        [Output("version")]
-        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,9 +91,6 @@ namespace Pulumi.Aci
             }
         }
 
-        [Input("pluginDownloadURL")]
-        public Input<string>? PluginDownloadURL { get; set; }
-
         /// <summary>
         /// Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
         /// </summary>
@@ -117,9 +108,6 @@ namespace Pulumi.Aci
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
-
-        [Input("version")]
-        public Input<string>? Version { get; set; }
 
         public ProviderArgs()
         {

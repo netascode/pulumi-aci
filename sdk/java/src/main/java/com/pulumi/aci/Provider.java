@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @ResourceType(type="pulumi:providers:aci")
@@ -29,12 +28,6 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<String> password() {
         return this.password;
-    }
-    @Export(name="pluginDownloadURL", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> pluginDownloadURL;
-
-    public Output<Optional<String>> pluginDownloadURL() {
-        return Codegen.optional(this.pluginDownloadURL);
     }
     /**
      * URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
@@ -63,12 +56,6 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<String> username() {
         return this.username;
-    }
-    @Export(name="version", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> version;
-
-    public Output<Optional<String>> version() {
-        return Codegen.optional(this.version);
     }
 
     /**

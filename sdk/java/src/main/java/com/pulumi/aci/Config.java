@@ -33,9 +33,6 @@ public final class Config {
     public String password() {
         return Codegen.stringProp("password").config(config).env("ACI_PASSWORD").def("").require();
     }
-    public Optional<String> pluginDownloadURL() {
-        return Codegen.stringProp("pluginDownloadURL").config(config).get();
-    }
 /**
  * Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
  * 
@@ -56,8 +53,5 @@ public final class Config {
  */
     public String username() {
         return Codegen.stringProp("username").config(config).env("ACI_USERNAME").def("").require();
-    }
-    public Optional<String> version() {
-        return Codegen.stringProp("version").config(config).get();
     }
 }

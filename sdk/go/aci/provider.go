@@ -16,13 +16,11 @@ type Provider struct {
 	pulumi.ProviderResourceState
 
 	// Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
-	Password          pulumi.StringOutput    `pulumi:"password"`
-	PluginDownloadURL pulumi.StringPtrOutput `pulumi:"pluginDownloadURL"`
+	Password pulumi.StringOutput `pulumi:"password"`
 	// URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.
-	Username pulumi.StringOutput    `pulumi:"username"`
-	Version  pulumi.StringPtrOutput `pulumi:"version"`
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -69,15 +67,13 @@ type providerArgs struct {
 	// Enable debug logging. This can also be set as the ACI_LOGGING environment variable. Defaults to false.
 	Logging *bool `pulumi:"logging"`
 	// Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
-	Password          string  `pulumi:"password"`
-	PluginDownloadURL *string `pulumi:"pluginDownloadURL"`
+	Password string `pulumi:"password"`
 	// Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
 	Retries *int `pulumi:"retries"`
 	// URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
 	Url string `pulumi:"url"`
 	// Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.
-	Username string  `pulumi:"username"`
-	Version  *string `pulumi:"version"`
+	Username string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -87,15 +83,13 @@ type ProviderArgs struct {
 	// Enable debug logging. This can also be set as the ACI_LOGGING environment variable. Defaults to false.
 	Logging pulumi.BoolPtrInput
 	// Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
-	Password          pulumi.StringInput
-	PluginDownloadURL pulumi.StringPtrInput
+	Password pulumi.StringInput
 	// Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
 	Retries pulumi.IntPtrInput
 	// URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
 	Url pulumi.StringInput
 	// Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.
 	Username pulumi.StringInput
-	Version  pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -140,10 +134,6 @@ func (o ProviderOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-func (o ProviderOutput) PluginDownloadURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PluginDownloadURL }).(pulumi.StringPtrOutput)
-}
-
 // URL of the Cisco APIC web interface. This can also be set as the ACI_URL environment variable.
 func (o ProviderOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
@@ -152,10 +142,6 @@ func (o ProviderOutput) Url() pulumi.StringOutput {
 // Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.
 func (o ProviderOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
-}
-
-func (o ProviderOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -24,18 +24,17 @@ import (
 	"github.com/netascode/go-aci"
 	p "github.com/pulumi/pulumi-go-provider"
 	"github.com/pulumi/pulumi-go-provider/infer"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 type Config struct {
-	Version           *string `pulumi:"version,optional"`
-	PluginDownloadURL *string `pulumi:"pluginDownloadURL,optional"`
-	Url               string  `pulumi:"url"`
-	Username          string  `pulumi:"username"`
-	Password          string  `pulumi:"password" provider:"secret"`
-	Insecure          *bool   `pulumi:"insecure,optional"`
-	Retries           *int    `pulumi:"retries,optional"`
-	Logging           *bool   `pulumi:"logging,optional"`
-	Client            *aci.Client
+	Url      string `pulumi:"url"`
+	Username string `pulumi:"username"`
+	Password string `pulumi:"password" provider:"secret"`
+	Insecure *bool  `pulumi:"insecure,optional"`
+	Retries  *int   `pulumi:"retries,optional"`
+	Logging  *bool  `pulumi:"logging,optional"`
+	Client   *aci.Client
 }
 
 var _ = (infer.Annotated)((*Config)(nil))
@@ -55,6 +54,29 @@ func (c *Config) Annotate(a infer.Annotator) {
 	// a.SetDefault(&c.Insecure, true, "ACI_INSECURE")
 	// a.SetDefault(&c.Retries, 3, "ACI_RETRIES")
 	// a.SetDefault(&c.Logging, false, "ACI_LOGGING")
+}
+
+var _ = (infer.CustomCheck[*Config])((*Config)(nil))
+
+// workaround for https://github.com/pulumi/pulumi-go-provider/issues/110
+func (c *Config) Check(ctx p.Context, name string, oldInputs, newInputs resource.PropertyMap) (*Config, []p.CheckFailure, error) {
+	c.Url = newInputs["url"].StringValue()
+	c.Username = newInputs["username"].StringValue()
+	c.Password = newInputs["password"].StringValue()
+	if newInputs["insecure"].IsBool() {
+		insecure := newInputs["insecure"].BoolValue()
+		c.Insecure = &insecure
+	}
+	if newInputs["retries"].IsNumber() {
+		retries := int(newInputs["retries"].NumberValue())
+		c.Retries = &retries
+	}
+	if newInputs["logging"].IsBool() {
+		logging := newInputs["logging"].BoolValue()
+		c.Logging = &logging
+	}
+
+	return c, []p.CheckFailure{}, nil
 }
 
 var _ = (infer.CustomConfigure)((*Config)(nil))

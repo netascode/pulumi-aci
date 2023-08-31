@@ -37,10 +37,6 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('password') or (_utilities.get_env('ACI_PASSWORD') or '')
 
     @property
-    def plugin_download_url(self) -> Optional[str]:
-        return __config__.get('pluginDownloadURL')
-
-    @property
     def retries(self) -> Optional[int]:
         """
         Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
@@ -60,8 +56,4 @@ class _ExportableConfig(types.ModuleType):
         Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.
         """
         return __config__.get('username') or (_utilities.get_env('ACI_USERNAME') or '')
-
-    @property
-    def version(self) -> Optional[str]:
-        return __config__.get('version')
 

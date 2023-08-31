@@ -33,9 +33,6 @@ func GetPassword(ctx *pulumi.Context) string {
 	}
 	return value
 }
-func GetPluginDownloadURL(ctx *pulumi.Context) string {
-	return config.Get(ctx, "aci:pluginDownloadURL")
-}
 
 // Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
 func GetRetries(ctx *pulumi.Context) int {
@@ -66,7 +63,4 @@ func GetUsername(ctx *pulumi.Context) string {
 		value = d.(string)
 	}
 	return value
-}
-func GetVersion(ctx *pulumi.Context) string {
-	return config.Get(ctx, "aci:version")
 }

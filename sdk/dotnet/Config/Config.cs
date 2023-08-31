@@ -62,13 +62,6 @@ namespace Pulumi.Aci
             set => _password.Set(value);
         }
 
-        private static readonly __Value<string?> _pluginDownloadURL = new __Value<string?>(() => __config.Get("pluginDownloadURL"));
-        public static string? PluginDownloadURL
-        {
-            get => _pluginDownloadURL.Get();
-            set => _pluginDownloadURL.Set(value);
-        }
-
         private static readonly __Value<int?> _retries = new __Value<int?>(() => __config.GetInt32("retries"));
         /// <summary>
         /// Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
@@ -97,13 +90,6 @@ namespace Pulumi.Aci
         {
             get => _username.Get();
             set => _username.Set(value);
-        }
-
-        private static readonly __Value<string?> _version = new __Value<string?>(() => __config.Get("version"));
-        public static string? Version
-        {
-            get => _version.Get();
-            set => _version.Set(value);
         }
 
     }

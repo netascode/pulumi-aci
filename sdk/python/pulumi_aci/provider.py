@@ -19,9 +19,7 @@ class ProviderArgs:
                  username: pulumi.Input[str],
                  insecure: Optional[pulumi.Input[bool]] = None,
                  logging: Optional[pulumi.Input[bool]] = None,
-                 plugin_download_url: Optional[pulumi.Input[str]] = None,
-                 retries: Optional[pulumi.Input[int]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 retries: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] password: Password for the APIC Account. This can also be set as the ACI_PASSWORD environment variable.
@@ -44,12 +42,8 @@ class ProviderArgs:
             pulumi.set(__self__, "insecure", insecure)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
-        if plugin_download_url is not None:
-            pulumi.set(__self__, "plugin_download_url", plugin_download_url)
         if retries is not None:
             pulumi.set(__self__, "retries", retries)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -112,15 +106,6 @@ class ProviderArgs:
         pulumi.set(self, "logging", value)
 
     @property
-    @pulumi.getter(name="pluginDownloadURL")
-    def plugin_download_url(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "plugin_download_url")
-
-    @plugin_download_url.setter
-    def plugin_download_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "plugin_download_url", value)
-
-    @property
     @pulumi.getter
     def retries(self) -> Optional[pulumi.Input[int]]:
         """
@@ -132,15 +117,6 @@ class ProviderArgs:
     def retries(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retries", value)
 
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
-
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -150,11 +126,9 @@ class Provider(pulumi.ProviderResource):
                  insecure: Optional[pulumi.Input[bool]] = None,
                  logging: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 plugin_download_url: Optional[pulumi.Input[str]] = None,
                  retries: Optional[pulumi.Input[int]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a Aci resource with the given unique name, props, and options.
@@ -193,11 +167,9 @@ class Provider(pulumi.ProviderResource):
                  insecure: Optional[pulumi.Input[bool]] = None,
                  logging: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 plugin_download_url: Optional[pulumi.Input[str]] = None,
                  retries: Optional[pulumi.Input[int]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,7 +186,6 @@ class Provider(pulumi.ProviderResource):
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
-            __props__.__dict__["plugin_download_url"] = plugin_download_url
             __props__.__dict__["retries"] = pulumi.Output.from_input(retries).apply(pulumi.runtime.to_json) if retries is not None else None
             if url is None:
                 url = (_utilities.get_env('ACI_URL') or '')
@@ -226,7 +197,6 @@ class Provider(pulumi.ProviderResource):
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
-            __props__.__dict__["version"] = version
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
@@ -244,11 +214,6 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "password")
 
     @property
-    @pulumi.getter(name="pluginDownloadURL")
-    def plugin_download_url(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "plugin_download_url")
-
-    @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
@@ -263,9 +228,4 @@ class Provider(pulumi.ProviderResource):
         Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.
         """
         return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "version")
 

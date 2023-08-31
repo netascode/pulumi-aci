@@ -25,9 +25,6 @@
                 "secret": true,
                 "type": "string"
             },
-            "pluginDownloadURL": {
-                "type": "string"
-            },
             "retries": {
                 "description": "Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.",
                 "type": "integer"
@@ -50,9 +47,6 @@
                     ]
                 },
                 "description": "Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.",
-                "type": "string"
-            },
-            "version": {
                 "type": "string"
             }
         }
@@ -122,9 +116,6 @@
                 "secret": true,
                 "type": "string"
             },
-            "pluginDownloadURL": {
-                "type": "string"
-            },
             "retries": {
                 "description": "Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.",
                 "type": "integer"
@@ -147,9 +138,6 @@
                     ]
                 },
                 "description": "Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.",
-                "type": "string"
-            },
-            "version": {
                 "type": "string"
             }
         },
@@ -173,9 +161,6 @@
                 "secret": true,
                 "type": "string"
             },
-            "pluginDownloadURL": {
-                "type": "string"
-            },
             "retries": {
                 "description": "Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.",
                 "type": "integer"
@@ -198,9 +183,6 @@
                     ]
                 },
                 "description": "Username for the APIC Account. This can also be set as the ACI_USERNAME environment variable.",
-                "type": "string"
-            },
-            "version": {
                 "type": "string"
             }
         },

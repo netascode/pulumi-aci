@@ -63,13 +63,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return this.password;
     }
 
-    @Import(name="pluginDownloadURL")
-    private @Nullable Output<String> pluginDownloadURL;
-
-    public Optional<Output<String>> pluginDownloadURL() {
-        return Optional.ofNullable(this.pluginDownloadURL);
-    }
-
     /**
      * Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
      * 
@@ -115,24 +108,15 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return this.username;
     }
 
-    @Import(name="version")
-    private @Nullable Output<String> version;
-
-    public Optional<Output<String>> version() {
-        return Optional.ofNullable(this.version);
-    }
-
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
         this.insecure = $.insecure;
         this.logging = $.logging;
         this.password = $.password;
-        this.pluginDownloadURL = $.pluginDownloadURL;
         this.retries = $.retries;
         this.url = $.url;
         this.username = $.username;
-        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -216,15 +200,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return password(Output.of(password));
         }
 
-        public Builder pluginDownloadURL(@Nullable Output<String> pluginDownloadURL) {
-            $.pluginDownloadURL = pluginDownloadURL;
-            return this;
-        }
-
-        public Builder pluginDownloadURL(String pluginDownloadURL) {
-            return pluginDownloadURL(Output.of(pluginDownloadURL));
-        }
-
         /**
          * @param retries Number of retries for REST API calls. This can also be set as the ACI_RETRIES environment variable. Defaults to 3.
          * 
@@ -286,15 +261,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder username(String username) {
             return username(Output.of(username));
-        }
-
-        public Builder version(@Nullable Output<String> version) {
-            $.version = version;
-            return this;
-        }
-
-        public Builder version(String version) {
-            return version(Output.of(version));
         }
 
         public ProviderArgs build() {
