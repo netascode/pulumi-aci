@@ -5,8 +5,9 @@ go 1.20
 require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/netascode/go-aci v0.1.0
-	github.com/pulumi/pulumi-go-provider v0.11.1
+	github.com/pulumi/pulumi-go-provider v0.12.0
 	github.com/pulumi/pulumi-go-provider/integration v0.10.0
+	github.com/pulumi/pulumi/sdk/v3 v3.76.1
 	github.com/tidwall/gjson v1.16.0
 )
 
@@ -49,7 +50,6 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/pulumi/pulumi/pkg/v3 v3.76.1 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.76.1 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
