@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/netascode/go-aci v0.1.0
-	github.com/pulumi/pulumi-go-provider v0.12.0
+	github.com/pulumi/pulumi-go-provider v0.12.2
 	github.com/pulumi/pulumi-go-provider/integration v0.10.0
 	github.com/pulumi/pulumi/sdk/v3 v3.88.0
 	github.com/tidwall/gjson v1.16.0
