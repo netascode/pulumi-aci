@@ -7,7 +7,7 @@ require (
 	github.com/netascode/go-aci v0.1.0
 	github.com/pulumi/pulumi-go-provider v0.12.2
 	github.com/pulumi/pulumi-go-provider/integration v0.10.0
-	github.com/pulumi/pulumi/sdk/v3 v3.88.0
+	github.com/pulumi/pulumi/sdk/v3 v3.88.1
 	github.com/tidwall/gjson v1.17.0
 )
 
@@ -62,8 +62,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/pulumi/esc v0.4.0 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.78.2-0.20230926151835-2b44cf6ec1be // indirect
+	github.com/pulumi/esc v0.5.2 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.78.2-0.20231010213836-fd8c4dd81928 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -86,10 +86,10 @@ require (
 	github.com/zclconf/go-cty v1.13.2 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
 	golang.org/x/crypto v0.11.0 // indirect
-	golang.org/x/exp v0.0.0-20230817173708-d852ddb80c63 // indirect
+	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/sync v0.2.0 // indirect
-	golang.org/x/sys v0.11.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/term v0.10.0 // indirect
 	golang.org/x/text v0.11.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230706204954-ccb25ca9f130 // indirect
