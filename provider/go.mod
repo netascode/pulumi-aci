@@ -7,7 +7,7 @@ require (
 	github.com/netascode/go-aci v0.1.0
 	github.com/pulumi/pulumi-go-provider v0.14.0
 	github.com/pulumi/pulumi-go-provider/integration v0.10.0
-	github.com/pulumi/pulumi/sdk/v3 v3.108.1
+	github.com/pulumi/pulumi/sdk/v3 v3.110.0
 	github.com/tidwall/gjson v1.17.1
 )
 
