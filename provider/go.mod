@@ -7,7 +7,7 @@ require (
 	github.com/netascode/go-aci v0.1.0
 	github.com/pulumi/pulumi-go-provider v0.14.0
 	github.com/pulumi/pulumi-go-provider/integration v0.10.0
-	github.com/pulumi/pulumi/sdk/v3 v3.124.0
+	github.com/pulumi/pulumi/sdk/v3 v3.137.0
 	github.com/tidwall/gjson v1.17.1
 )
 
@@ -84,7 +84,6 @@ require (
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
-	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
